@@ -1,0 +1,37 @@
+<div>
+  <h3 mat-dialog-title>{{data.type === 1 ? "Add New Boook" : "Edit This Book"}}</h3>
+  <form [formGroup]="bookForm">
+    <div class="form-group" fxLayout="column">
+      <mat-form-field color="accent">
+        <input matInput placeholder="Id" formControlName="id" [readonly]="data.type === 1 ? false : true">
+      </mat-form-field>
+      <mat-form-field color="accent">
+        <input matInput placeholder="Name" formControlName="name">
+      </mat-form-field>
+      <mat-form-field color="accent">
+        <input matInput placeholder="Author" formControlName="author">
+      </mat-form-field>
+      <mat-form-field color="accent">
+        <input matInput placeholder="Price" formControlName="price">
+      </mat-form-field>
+      <!-- <mat-form-field color="accent">
+        <input matInput placeholder="Release Date" formControlName="releasedate">
+      </mat-form-field> -->
+      <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Release Date" formControlName="releasedate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field color="accent">
+        <input matInput placeholder="Genre" formControlName="genre" [errorStateMatcher]="matcher">
+      </mat-form-field>
+      <!-- <mat-error *ngIf="bookForm.controls['genre'].hasError('required')">
+          Genre is <strong>required</strong>
+      </mat-error> -->
+      <div mat-dialog-actions>
+          <button mat-button [disabled]="!bookForm.valid" (click)="confirm()">Save</button>
+          <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>

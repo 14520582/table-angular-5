@@ -1,0 +1,40 @@
+<div class="book-table">
+  <button mat-mini-fab color="accent" (click)="openDialog(1)"><mat-icon>add</mat-icon></button>
+  <div class="cdk-table-container">
+    <cdk-table #table [dataSource]="dataSource" class="cdk-table">
+      <ng-container cdkColumnDef="id">
+        <cdk-header-cell *cdkHeaderCellDef fxFlex="5"> ID </cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row" fxFlex="5"> {{row.id}} </cdk-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="name">
+        <cdk-header-cell *cdkHeaderCellDef fxFlex> Name </cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row" fxFlex> {{row.name}} </cdk-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="author">
+        <cdk-header-cell *cdkHeaderCellDef fxFlex="15"> Author </cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row" fxFlex="15"> {{row.author}} </cdk-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="releasedate">
+        <cdk-header-cell *cdkHeaderCellDef fxFlex="10">Release Date</cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row" fxFlex="10">{{ row.releasedate | date:'dd-MM-yyyy'}}</cdk-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="price">
+        <cdk-header-cell *cdkHeaderCellDef fxFlex="10">Price</cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row" fxFlex="10">{{ row.price | currency:'VND'}}</cdk-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="genre">
+        <cdk-header-cell *cdkHeaderCellDef fxFlex="15">Genre</cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row" fxFlex="15">{{ row.genre }}</cdk-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="actions">
+        <cdk-header-cell *cdkHeaderCellDef fxFlex="10">Actions</cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row" fxFlex="10">
+          <button mat-icon-button (click)="openDialog(0,row)"><mat-icon color="primary">mode_edit</mat-icon></button>
+          <button mat-icon-button (click)="onRemove(row)"><mat-icon color="warn">delete</mat-icon></button>
+        </cdk-cell>
+      </ng-container>
+      <cdk-header-row *cdkHeaderRowDef="displayedColumns" class="cdk-header-row"></cdk-header-row>
+      <cdk-row *cdkRowDef="let row; columns: displayedColumns;" class="cdk-row"></cdk-row>
+    </cdk-table>
+  </div>
+</div>

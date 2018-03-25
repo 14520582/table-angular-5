@@ -1,0 +1,22 @@
+<button mat-mini-fab color="accent" (click)="openDialog(1)"><mat-icon>add</mat-icon></button>
+<div class="header-table">
+  <span fxFlex="5">ID</span>
+  <span fxFlex="30">Name</span>
+  <span fxFlex="20">Author</span>
+  <span fxFlex="10">Price</span>
+  <span fxFlex="10">Release Date</span>
+  <span fxFlex="10">Genre</span>
+  <span fxFlex>Actions</span>
+</div>
+<div class="book-row" *ngFor="let item of books" fxLayout="row" fxLayoutAlign="space-between center">
+  <div fxFlex="5">{{item.id}}</div>
+  <div fxFlex="30">{{item.name}}</div>
+  <div fxFlex="20">{{item.author}}</div>
+  <div fxFlex="10">{{item.price | currency:'VND'}}</div>
+  <div fxFlex="10">{{item.releasedate | date:'dd-MM-yyyy'}}</div>
+  <div fxFlex="10">{{item.genre}}</div>
+  <div fxLayout="row" fxFlex fxLayoutAlign="space-around center">
+    <button mat-raised-button color="primary" (click)="openDialog(0,item)">Edit</button>
+    <button mat-raised-button color="warn" (click)="onRemove(item)">Remove</button>
+  </div>
+</div>

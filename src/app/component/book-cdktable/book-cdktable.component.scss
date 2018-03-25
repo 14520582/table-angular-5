@@ -1,0 +1,32 @@
+.cdk-table-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+}
+.book-table {
+    >button {
+        margin-bottom: 8px;
+    }
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+.cdk-table {
+    flex: 1 1 auto;
+    max-height: 500px;
+}
+  
+.cdk-header-row, .cdk-row {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+    padding: 0 8px;
+}
+.cdk-header-cell {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.54);
+}
+.cdk-cell {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.87);
+}
